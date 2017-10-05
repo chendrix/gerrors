@@ -13,7 +13,6 @@ func MatchWrappedError(expected interface{}) types.GomegaMatcher {
 	return &MatchWrappedErrorMatcher{
 		Expected: expected,
 	}
-
 }
 
 type MatchWrappedErrorMatcher struct {
