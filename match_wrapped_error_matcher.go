@@ -41,11 +41,11 @@ func (matcher *MatchWrappedErrorMatcher) Match(actual interface{}) (bool, error)
 		return success, err
 	}
 
-	_, expectedCauserOk := matcher.Expected.(Causer)
+	_, expectedCauserOK := matcher.Expected.(Causer)
 	_, actualCauserOK := actual.(Causer)
 
 	// XOR, one of them is a wrapped error and the other isn't
-	if expectedCauserOk != actualCauserOK {
+	if expectedCauserOK != actualCauserOK {
 		underlyingExpected := unwindError(expectedErr)
 		underlyingActual := unwindError(actualErr)
 		return matchError(underlyingExpected, underlyingActual)
